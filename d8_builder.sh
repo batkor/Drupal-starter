@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #<----------START FUNCTIONS BLOCK------------>
 # Function check project directory and if need create directory.
 check_folder(){
@@ -88,6 +89,22 @@ rm -rf docker4drupal.tar.gz ./drupal-project .git/
 # Set project name in .env file
 sed -i "s/my_drupal8_project/"$project_name"/" $folder/.env
 sed -i "s/drupal.docker/"$project_name"/" $folder/.env
+
+# Change port. 
+read -p "Введите номер порта или остаьте пустым:`echo $'\n> '`" port_name
+case "$port_name" in
+    "") echo "Порт: 8000"
+        exit 0 ;;
+    *) 
+        if [[ "$port_name" =~ ^[0-9]+$ ]]; then
+            sed -i "s/8000/"$port_name"/" $folder/docker-compose.yml
+            echo "Порт: "$port_name
+        else
+            echo "Не корректный номер порта: "$port_name
+        fi
+    ;;
+esac
+
 # Result message.
 echo 'Installed in: '$folder
 echo 'Project name: '$project_name
