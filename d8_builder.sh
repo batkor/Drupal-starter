@@ -93,8 +93,7 @@ sed -i "s/drupal.docker/"$project_name"/" $folder/.env
 # Change port. 
 read -p "Введите номер порта или остаьте пустым:`echo $'\n> '`" port_name
 case "$port_name" in
-    "") echo "Порт: 8000"
-        exit 0 ;;
+    "") echo "Порт: 8000" ;;
     *) 
         if [[ "$port_name" =~ ^[0-9]+$ ]]; then
             sed -i "s/8000/"$port_name"/" $folder/docker-compose.yml
