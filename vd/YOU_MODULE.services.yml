@@ -1,0 +1,7 @@
+services:
+
+  vd.twig_extension:
+    class: Drupal\YOU_MODULE\VdTwigExtension
+    arguments: ['@messenger']
+    tags:
+      - { name: twig.extension }
