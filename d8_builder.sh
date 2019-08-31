@@ -34,7 +34,7 @@ check_folder(){
 
 # Function return path to project.
 get_path_project(){
-    read  -e -p "Введите путь до нового проекта или оставьте путым:`echo $'\n> '`" folder
+    read  -e -p "Введите путь до нового проекта или оставьте пустым:`echo $'\n> '`" folder
     case "$folder" in
         "") folder=${PWD} ;;
     esac
