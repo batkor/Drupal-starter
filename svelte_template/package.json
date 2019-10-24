@@ -1,0 +1,19 @@
+{
+  "name": "decor_svelte",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "rollup.config.js",
+  "scripts": {
+    "build": "rollup -c --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rollup": "^1.25.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-svelte": "^5.1.0",
+    "svelte": "^3.12.1"
+  }
+}
