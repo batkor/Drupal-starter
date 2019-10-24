@@ -1,13 +1,12 @@
-import CartCount from './CartCount.svelte'
+import App from './App.svelte'
 import Drupal from 'drupalCore';
 
-Drupal.behaviors.cartCount = {
+Drupal.behaviors.App = {
   attach: function (context) {
     context = context || document;
-    let target = context.querySelector('#app-cart_count');
+    let target = context.querySelector('you_selector');
     if (target) {
-      Drupal.app.methods.removeChild(target);
-      new CartCount({
+      new App({
         target: target
       });
     }
