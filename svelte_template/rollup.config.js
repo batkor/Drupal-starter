@@ -36,6 +36,6 @@ const entry = (input, output) => {
 
 // Return entries
 export default [
-  entry('you_input_main.js', 'you_output_main.js'),
-  entry('you_input_main_2.js', 'you_output_main_2.js'),
+  entry('js/main.js', 'js/myApp.js'),
+  entry('you_second_input.js', 'you_second_ouput.js'),
 ];
