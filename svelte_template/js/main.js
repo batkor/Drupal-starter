@@ -5,10 +5,11 @@ Drupal.behaviors.App = {
   attach: function (context) {
     context = context || document;
     let target = context.querySelector('you_selector');
-    if (target) {
+    if (target && !target.classList.contains('once')) {
       new App({
         target: target
       });
+      target.classList.add('once');
     }
   },
 };
