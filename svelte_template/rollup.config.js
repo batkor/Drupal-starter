@@ -1,16 +1,24 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import svelte from 'rollup-plugin-svelte';
+import { terser } from 'rollup-plugin-terser';
 
-// Plugins.
+const is_watch = process.env.ROLLUP_WATCH;
+
 const plugins = [
   svelte({
-    dev: true,
+    dev: is_watch,
+    onwarn: (warning, handler) => {
+      // Disable warning missing attributes.
+      if (warning.code === 'a11y-missing-attribute') return;
+      handler(warning);
+    }
   }),
   resolve({
     browser: true,
   }),
   commonjs(),
+  !is_watch && terser()
 ];
 
 // Entry create.

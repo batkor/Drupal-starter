@@ -5,7 +5,8 @@
   "private": true,
   "main": "rollup.config.js",
   "scripts": {
-    "build": "rollup -c --watch"
+    "build": "rollup -c",
+    "dev": "rollup -c --watch"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-svelte": "^5.1.0",
+    "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.12.1"
   }
 }
