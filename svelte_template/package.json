@@ -1,8 +1,7 @@
 {
-  "name": "decor_svelte",
+  "name": "svelte_template",
   "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "description": "My svelte project",
   "main": "rollup.config.js",
   "scripts": {
     "build": "rollup -c",
