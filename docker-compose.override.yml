@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  php:
+    volumes:
+      - ./codebase/:/var/www/html
+  nginx:
+    volumes:
+      - ./codebase/:/var/www/html

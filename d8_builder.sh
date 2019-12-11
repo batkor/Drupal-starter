@@ -79,12 +79,9 @@ rm -rf {.,}*
 #Download docker4Drupal.
 wget -N -P $folder https://github.com/wodby/docker4drupal/releases/download/$d4d_version/docker4drupal.tar.gz
 tar -xvf docker4drupal.tar.gz
-#Download Drupal-project.
-git clone https://github.com/drupal-composer/drupal-project.git
 
 # Correct project directory.
-mv ./drupal-project/{.,}* ./
-rm -rf docker4drupal.tar.gz ./drupal-project .git/
+rm -rf docker4drupal.tar.gz
 
 # Set project name in .env file
 sed -i "s/my_drupal8_project/"$project_name"/" $folder/.env
@@ -103,6 +100,8 @@ case "$port_name" in
         fi
     ;;
 esac
+
+# 
 
 # Result message.
 echo 'Installed in: '$folder
