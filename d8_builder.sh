@@ -101,7 +101,11 @@ case "$port_name" in
     ;;
 esac
 
-# 
+# Get docker-compose override file.
+wget -O docker-compose.override.yml 'https://gitlab.com/batkor/ease/raw/master/docker-compose.override.yml'
+
+# Get composer.json file.
+
 
 # Result message.
 echo 'Installed in: '$folder
