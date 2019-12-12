@@ -20,7 +20,8 @@
         "cweagans/composer-patches": "^1.6",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-recommended": "^8.8",
-        "drush/drush": "^10.1"
+        "drush/drush": "^10.1",
+        "wikimedia/composer-merge-plugin": "^1.4"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8"
@@ -46,6 +47,15 @@
                 "[web-root]/robots.txt": false,
                 "[web-root]/sites/development.services.yml": false
             }
+        },
+        "merge-plugin": {
+            "include": [
+                "web/modules/custom/*/composer.json",
+                "web/themes/custom/*/composer.json"
+            ],
+            "recurse": true,
+            "replace": false,
+            "merge-extra": false
         },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
