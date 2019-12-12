@@ -104,8 +104,10 @@ esac
 # Get docker-compose override file.
 wget -O docker-compose.override.yml 'https://gitlab.com/batkor/ease/raw/master/docker-compose.override.yml'
 
-# Get composer.json file.
+# Get default files.
 wget -P codebase 'https://gitlab.com/batkor/ease/raw/master/composer.json'
+wget -P codebase 'https://gitlab.com/batkor/ease/raw/master/.gitconfig'
+wget -P codebase 'https://gitlab.com/batkor/ease/raw/master/.gitignore'
 
 # Result message.
 echo 'Installed in: '$folder
