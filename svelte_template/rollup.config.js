@@ -2,7 +2,6 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
-import { eslint } from "rollup-plugin-eslint";
 import babel from 'rollup-plugin-babel';
 
 const is_watch = process.env.ROLLUP_WATCH;
@@ -20,9 +19,6 @@ const plugins = [
     browser: true,
   }),
   commonjs(),
-  eslint({
-    fix: true
-  }),
   babel({
     exclude: 'node_modules/**',
     presets: [
