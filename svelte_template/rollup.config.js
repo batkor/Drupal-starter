@@ -3,6 +3,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
 import babel from 'rollup-plugin-babel';
+import cleanup from 'rollup-plugin-cleanup';
 
 const is_watch = process.env.ROLLUP_WATCH;
 
@@ -31,6 +32,7 @@ const plugins = [
       ]
     ]
   }),
+  cleanup(),
   !is_watch && terser()
 ];
 
