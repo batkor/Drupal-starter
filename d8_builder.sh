@@ -85,7 +85,7 @@ rm -rf docker4drupal.tar.gz
 rm -rf docker-sync.yml
 
 # Create example.env
-cp $folder/.env $folder/example.env
+cp $folder/.env $folder/.env.example
 
 # Set project name in .env file
 sed -i "s/my_drupal8_project/"$project_name"/" $folder/.env
