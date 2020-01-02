@@ -1,0 +1,8 @@
+[core]
+  autocrlf = false
+  safecrlf = false
+  ignorecase = false
+[branch]
+  autosetuprebase = always
+[color]
+  ui = true

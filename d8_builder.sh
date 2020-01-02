@@ -84,6 +84,9 @@ tar -xvf docker4drupal.tar.gz
 rm -rf docker4drupal.tar.gz
 rm -rf docker-sync.yml
 
+# Create example.env
+cp $folder/.env $folder/example.env
+
 # Set project name in .env file
 sed -i "s/my_drupal8_project/"$project_name"/" $folder/.env
 sed -i "s/drupal.docker/"$project_name"/" $folder/.env
@@ -109,6 +112,7 @@ wget -O docker-compose.override.yml 'https://gitlab.com/batkor/ease/raw/master/d
 wget 'https://gitlab.com/batkor/ease/raw/master/composer.json'
 wget 'https://gitlab.com/batkor/ease/raw/master/.gitconfig'
 wget 'https://gitlab.com/batkor/ease/raw/master/.gitignore'
+wget 'https://gitlab.com/batkor/ease/raw/master/load.environment.php'
 
 # Result message.
 echo 'Installed in: '$folder

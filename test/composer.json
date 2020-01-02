@@ -21,7 +21,6 @@
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drush/drush": "^10.1",
-        "vlucas/phpdotenv": "^4.1",
         "wikimedia/composer-merge-plugin": "^1.4"
     },
     "require-dev": {
@@ -34,9 +33,6 @@
     "prefer-stable": true,
     "config": {
         "sort-packages": true
-    },
-    "autoload": {
-        "files": ["load.environment.php"]
     },
     "extra": {
         "composer-exit-on-patch-failure": true,
