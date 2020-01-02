@@ -1,9 +1,0 @@
-version: "3"
-
-services:
-  php:
-    volumes:
-      - ./:/var/www/html
-  nginx:
-    volumes:
-      - ./:/var/www/html
