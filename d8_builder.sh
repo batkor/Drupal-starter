@@ -89,7 +89,7 @@ sed -i "s/my_drupal8_project/"$project_name"/" $folder/.env
 sed -i "s/drupal.docker/"$project_name"/" $folder/.env
 
 # Change port. 
-read -p "Введите номер порта или остаьте пустым:`echo $'\n> '`" port_name
+read -p "Введите номер порта или оставьте пустым:`echo $'\n> '`" port_name
 case "$port_name" in
     "") echo "Порт: 8000" ;;
     *) 
