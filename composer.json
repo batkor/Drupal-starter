@@ -44,6 +44,7 @@
             "drupal/core": "-p2"
         },
         "drupal-scaffold": {
+            "gitignore": false,
             "locations": {
                 "web-root": "web/"
             },
