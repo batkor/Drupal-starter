@@ -32,18 +32,17 @@ node_modules
 /scripts/
 
 # Ignore scaffold files.
-.editorconfig
-.gitattributes
+/web/.editorconfig
+/web/.gitattributes
 
-.csslintrc
-.eslintignore
-.eslintrc.json
-.ht.router.php
-.htaccess
-INSTALL.txt
-README.txt
-autoload.php
-example.gitignore
-index.php
-update.php
-web.config
+/web/.csslintrc
+/web/.eslintignore
+/web/.eslintrc.json
+/web/.ht.router.php
+/web/INSTALL.txt
+/web/README.txt
+/web/autoload.php
+/web/example.gitignore
+/web/index.php
+/web/update.php
+/web/web.config
