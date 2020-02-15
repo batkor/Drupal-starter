@@ -1,6 +1,9 @@
 version: "3"
 
 services:
+  mariadb:
+    ports:
+      - '127.0.0.1:3306:3306'
   php:
     volumes:
       - ./:/var/www/html
