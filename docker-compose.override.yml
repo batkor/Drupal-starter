@@ -5,6 +5,8 @@ services:
     ports:
       - '127.0.0.1:3306:3306'
   php:
+#    environment:
+#      PHP_XDEBUG: 1
     volumes:
       - ./:/var/www/html
   nginx:
