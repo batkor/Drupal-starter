@@ -16,6 +16,14 @@
         {
             "type": "composer",
             "url": "https://repo.batkor.ru"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "path",
+            "url": "web/modules/custom/*"
         }
     ],
     "require": {
@@ -25,9 +33,7 @@
         "batkor/vd": "dev-master",
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-recommended": "^8.8",
-        "drush/drush": "^10.1",
-        "vlucas/phpdotenv": "^4.1",
-        "wikimedia/composer-merge-plugin": "^1.4"
+        "drush/drush": "^10.1"
     },
     "require-dev": {
         "drupal/core-dev": "^8.8"
@@ -40,9 +46,6 @@
     "config": {
         "sort-packages": true
     },
-    "autoload": {
-        "files": ["load.environment.php"]
-    },
     "extra": {
         "composer-exit-on-patch-failure": true,
         "patchLevel": {
@@ -54,23 +57,27 @@
                 "web-root": "web/"
             },
             "file-mapping": {
-                "[web-root]/robots.txt": false,
-                "[web-root]/.htaccess": false,
-                "[web-root]/sites/development.services.yml": false
+                "[web-root]/robots.txt": {
+                    "path": "web/core/assets/scaffold/files/robots.txt",
+                    "overwrite": false
+                },
+                "[web-root]/.htaccess": {
+                    "path": "web/core/assets/scaffold/files/htaccess",
+                    "overwrite": false
+                },
+                "[web-root]/sites/development.services.yml": {
+                    "path": "web/core/assets/scaffold/files/development.services.yml",
+                    "overwrite": false
+                }
             }
         },
-        "merge-plugin": {
-            "include": [
-                "web/modules/custom/*/composer.json",
-                "web/themes/custom/*/composer.json"
-            ],
-            "recurse": true,
-            "replace": false,
-            "merge-extra": false
-        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
         "installer-paths": {
             "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/libraries/{$name}": ["type:drupal-library", "type:bower-asset", "type:npm-asset"],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
