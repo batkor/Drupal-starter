@@ -112,7 +112,6 @@ wget -O docker-compose.override.yml 'https://gitlab.com/batkor/ease/raw/master/d
 wget 'https://gitlab.com/batkor/ease/raw/master/composer.json'
 wget 'https://gitlab.com/batkor/ease/raw/master/.gitconfig'
 wget 'https://gitlab.com/batkor/ease/raw/master/.gitignore'
-wget 'https://gitlab.com/batkor/ease/raw/master/load.environment.php'
 
 # Result message.
 echo 'Installed in: '$folder
