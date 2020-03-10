@@ -84,6 +84,11 @@
             "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
             "web/modules/custom/{$name}": ["type:drupal-custom-module"],
             "web/themes/custom/{$name}": ["type:drupal-custom-theme"]
+        },
+        "patches": {
+            "drupal/core": {
+                "issue:#3020876-25": "https://www.drupal.org/files/issues/2020-02-22/contextual_links_layout_builder_0.patch"
+            }
         }
     }
 }
