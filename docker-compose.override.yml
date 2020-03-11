@@ -10,5 +10,7 @@ services:
     volumes:
       - ./:/var/www/html
   nginx:
+#    environment:
+#      NGINX_SERVER_ROOT: /var/www/html
     volumes:
       - ./:/var/www/html
