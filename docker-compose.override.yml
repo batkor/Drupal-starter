@@ -4,13 +4,19 @@ services:
   mariadb:
     ports:
       - '127.0.0.1:3306:3306'
+    volumes:
+      - ./db/source:/var/lib/mysql
   php:
 #    environment:
 #      PHP_XDEBUG: 1
     volumes:
-      - ./:/var/www/html
+      - ./code:/var/www/html
+#      - ./files:/mnt/files
   nginx:
 #    environment:
 #      NGINX_SERVER_ROOT: /var/www/html
     volumes:
-      - ./:/var/www/html
+      - ./code:/var/www/html
+  traefik:
+    ports:
+      - '8000:80'

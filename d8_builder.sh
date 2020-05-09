@@ -48,7 +48,7 @@ get_path_project(){
 get_project_name(){
     read -p "Введите имя проекта или оставьте пустым:`echo $'\n> '`" project_name
     case "$project_name" in
-        "") project_name=${PWD##*/} ;;
+        "") project_name=$(basename $1) ;;
     esac
     echo $project_name
 }
@@ -65,7 +65,7 @@ d4d_last_version(){
 folder=$(get_path_project)
 check_folder $folder
 # Set project name. Used name in docker.
-project_name=$(get_project_name)
+project_name=$(get_project_name "$folder")
 # Set latest vesion for Docker4Drupal
 d4d_version=$(d4d_last_version)
 
@@ -84,12 +84,12 @@ tar -xvf docker4drupal.tar.gz
 rm -rf docker4drupal.tar.gz
 rm -rf docker-sync.yml
 
-# Create example.env
-cp $folder/.env $folder/.env.example
-
 # Set project name in .env file
 sed -i "s/my_drupal8_project/"$project_name"/" $folder/.env
 sed -i "s/drupal.docker/"$project_name"/" $folder/.env
+
+# Get docker-compose override file.
+curl -OJ https://gitlab.com/batkor/ease/raw/master/docker-compose.override.yml
 
 # Change port.
 read -p "Введите номер порта или оставьте пустым:`echo $'\n> '`" port_name
@@ -97,7 +97,7 @@ case "$port_name" in
     "") echo "Порт: 8000" ;;
     *)
         if [[ "$port_name" =~ ^[0-9]+$ ]]; then
-            sed -i "s/8000/"$port_name"/" $folder/docker-compose.yml
+            sed -i "s/8000/"$port_name"/" $folder/docker-compose.override.yml
             echo "Порт: "$port_name
         else
             echo "Не корректный номер порта: "$port_name
@@ -105,12 +105,9 @@ case "$port_name" in
     ;;
 esac
 
-# Get docker-compose override file.
-curl -OJ https://gitlab.com/batkor/ease/raw/master/docker-compose.override.yml
-
-# Get default files.
+# Create default files and folder.
+mkdir -p ./code/web/modules/custom
 curl -OJ 'https://gitlab.com/batkor/ease/raw/master/composer.json'
-curl -OJ 'https://gitlab.com/batkor/ease/raw/master/.gitconfig'
 curl -OJ 'https://gitlab.com/batkor/ease/raw/master/.gitignore'
 
 # Result message.
