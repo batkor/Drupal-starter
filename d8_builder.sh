@@ -77,7 +77,7 @@ cd $folder
 rm -rf {.,}*
 
 #Download docker4Drupal.
-curl -O -J $folder https://github.com/wodby/docker4drupal/releases/download/$d4d_version/docker4drupal.tar.gz
+curl -OJL https://github.com/wodby/docker4drupal/releases/download/$d4d_version/docker4drupal.tar.gz
 tar -xvf docker4drupal.tar.gz
 
 # Correct project directory.
@@ -106,12 +106,12 @@ case "$port_name" in
 esac
 
 # Get docker-compose override file.
-curl -O -J https://gitlab.com/batkor/ease/raw/master/docker-compose.override.yml
+curl -OJ https://gitlab.com/batkor/ease/raw/master/docker-compose.override.yml
 
 # Get default files.
-curl -O -J 'https://gitlab.com/batkor/ease/raw/master/composer.json'
-curl -O -J 'https://gitlab.com/batkor/ease/raw/master/.gitconfig'
-curl -O -J 'https://gitlab.com/batkor/ease/raw/master/.gitignore'
+curl -OJ 'https://gitlab.com/batkor/ease/raw/master/composer.json'
+curl -OJ 'https://gitlab.com/batkor/ease/raw/master/.gitconfig'
+curl -OJ 'https://gitlab.com/batkor/ease/raw/master/.gitignore'
 
 # Result message.
 echo 'Installed in: '$folder
