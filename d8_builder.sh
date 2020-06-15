@@ -74,7 +74,7 @@ echo "Путь до проекта: "$folder"; (Проект будет уста
 echo "Имя проекта: "$project_name"; (Данное имя будет указано в .env файле Docker4Drupal)"
 
 cd $folder
-rm -rf {.,}*
+find . -mindepth 1 -delete
 
 #Download docker4Drupal.
 curl -OJL https://github.com/wodby/docker4drupal/releases/download/$d4d_version/docker4drupal.tar.gz
