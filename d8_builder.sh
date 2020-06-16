@@ -85,7 +85,7 @@ rm -rf docker4drupal.tar.gz
 rm -rf docker-sync.yml
 
 # Set project name in .env file
-sed -i "s/my_drupal8_project/"$project_name"/" $folder/.env
+sed -i "s/my_drupal9_project/"$project_name"/" $folder/.env
 sed -i "s/drupal.docker/"$project_name"/" $folder/.env
 
 # Get docker-compose override file.
