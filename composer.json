@@ -30,13 +30,9 @@
         "php": ">=7.2",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
-        "batkor/vd": "dev-master",
-        "drupal/core-composer-scaffold": "^8.8",
-        "drupal/core-recommended": "^8.8",
+        "drupal/core-composer-scaffold": "^9.0",
+        "drupal/core-recommended": "^9.0",
         "drush/drush": "^10.1"
-    },
-    "require-dev": {
-        "drupal/core-dev": "^8.8"
     },
     "conflict": {
         "drupal/drupal": "*"
