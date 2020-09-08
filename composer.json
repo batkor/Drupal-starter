@@ -20,10 +20,6 @@
         {
             "type": "composer",
             "url": "https://asset-packagist.org"
-        },
-        {
-            "type": "path",
-            "url": "web/modules/custom/*"
         }
     ],
     "require": {
