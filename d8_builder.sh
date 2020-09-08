@@ -106,7 +106,6 @@ case "$port_name" in
 esac
 
 # Create default files and folder.
-mkdir -p ./code/web/modules/custom
 cd ./code
 curl -OJ 'https://gitlab.com/batkor/ease/raw/master/composer.json'
 curl -OJ 'https://gitlab.com/batkor/ease/raw/master/.gitignore'
