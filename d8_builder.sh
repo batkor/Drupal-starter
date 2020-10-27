@@ -109,6 +109,7 @@ esac
 mkdir ./code && cd ./code
 curl -OJ 'https://gitlab.com/batkor/ease/raw/master/composer.json'
 curl -OJ 'https://gitlab.com/batkor/ease/raw/master/.gitignore'
+curl -OJ 'https://gitlab.com/batkor/ease/-/raw/master/phpcs.xml'
 
 # Result message.
 echo 'Installed in: '$folder
