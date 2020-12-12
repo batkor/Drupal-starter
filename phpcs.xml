@@ -3,16 +3,16 @@
   <description>PROJECT</description>
   <arg name="colors"/>
   <arg name="extensions" value="php,module,inc,install,theme"/>
-  <file>./web/modules/custom</file>
-  <file>./web/themes/custom</file>
+  <file>*/modules/custom</file>
+  <file>*/themes/custom</file>
   <!-- Exclude vendors. -->
-  <exclude-pattern>./web/themes/custom/*/node_modules</exclude-pattern>
+  <exclude-pattern>*/node_modules</exclude-pattern>
   <!-- Exclude fixtures. -->
   <exclude-pattern>*/fixtures/*</exclude-pattern>
   <exclude-pattern>*\.(css|js)</exclude-pattern>
   <rule ref="vendor/drupal/coder/coder_sniffer/Drupal">
-    <!-- Exclude in favor of native typehints. -->
-    <exclude name="Drupal.Commenting.VariableComment.MissingVar"/>
+  <!-- Exclude in favor of native typehints. -->
+  <exclude name="Drupal.Commenting.VariableComment.MissingVar"/>
   </rule>
   <rule ref="vendor/drupal/coder/coder_sniffer/DrupalPractice"/>
   <rule ref="vendor/chi-teck/drupal-coder-extension/DrupalExtended73"/>
