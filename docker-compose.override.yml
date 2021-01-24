@@ -10,6 +10,8 @@ services:
   php:
 #    environment:
 #      PHP_XDEBUG: 1
+#      PHP_XDEBUG_MODE: debug
+#      PHP_IDE_CONFIG: serverName=my-ide
     volumes:
       - ./code:/var/www/html
 #      - ./files:/mnt/files
