@@ -12,6 +12,7 @@ services:
 #      PHP_XDEBUG: 1
 #      PHP_XDEBUG_MODE: debug
 #      PHP_IDE_CONFIG: serverName=my-ide
+# For run xdebug from CLI XDEBUG_SESSION=d4d sh -c './vendor/bin/drush scr scripts/test.php'
     volumes:
       - ./code:/var/www/html
 #      - ./files:/mnt/files
