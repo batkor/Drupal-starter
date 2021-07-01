@@ -3,7 +3,7 @@ version: "3"
 services:
   mariadb:
     ports:
-      - '127.0.0.1:3306:3306'
+      - '3306:3306'
     volumes:
       - ./db/init:/docker-entrypoint-initdb.d
       - ./db/source:/var/lib/mysql
