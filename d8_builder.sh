@@ -89,7 +89,7 @@ sed -i "s/my_drupal9_project/"$project_name"/" $folder/.env
 sed -i "s/drupal.docker/"$project_name"/" $folder/.env
 
 # Get docker-compose override file.
-curl -OJ https://gitlab.com/batkor/ease/raw/master/docker-compose.override.yml
+curl -OJ https://raw.githubusercontent.com/batkor/Drupal-starter/main/docker-compose.override.yml
 
 # Change port.
 read -p "Введите номер порта или оставьте пустым:`echo $'\n> '`" port_name
@@ -107,9 +107,10 @@ esac
 
 # Create default files and folder.
 mkdir ./code && cd ./code
-curl -OJ 'https://gitlab.com/batkor/ease/raw/master/composer.json'
-curl -OJ 'https://gitlab.com/batkor/ease/raw/master/.gitignore'
-curl -OJ 'https://gitlab.com/batkor/ease/-/raw/master/phpcs.xml'
+curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/composer.json'
+curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/.gitignore'
+curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/phpcs.xml'
+curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/phpunit.xml'
 
 # Result message.
 echo 'Installed in: '$folder
