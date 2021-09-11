@@ -6,6 +6,7 @@
   <file>*/modules/custom</file>
   <file>*/themes/custom</file>
   <!-- Exclude vendors. -->
+  <exclude-pattern>*/core</exclude-pattern>
   <exclude-pattern>*/node_modules</exclude-pattern>
   <!-- Exclude fixtures. -->
   <exclude-pattern>*/fixtures/*</exclude-pattern>
