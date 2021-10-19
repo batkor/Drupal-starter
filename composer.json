@@ -77,7 +77,7 @@
         "patches": {
             "drupal/core": {
                 "dgo.to/3020876#comment-13474808": "https://www.drupal.org/files/issues/2020-02-22/contextual_links_layout_builder_0.patch",
-                "dgo.to/2957953#comment-14208221": "https://www.drupal.org/files/issues/2021-09-02/2957953-134-9-2-x.patch"
+                "dgo.to/2957953#comment-14227597": "https://www.drupal.org/files/issues/2021-09-20/2957953-9.3.x-139.patch"
             }
         }
     },
