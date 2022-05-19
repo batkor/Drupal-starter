@@ -67,7 +67,8 @@ check_folder $folder
 # Set project name. Used name in docker.
 project_name=$(get_project_name "$folder")
 # Set latest vesion for Docker4Drupal
-d4d_version=$(d4d_last_version)
+last_version_url=$(curl -I https://github.com/wodby/docker4drupal/releases/latest | grep location:)
+d4d_version=${last_version_url##*/}
 
 # Warning message.
 echo "Путь до проекта: "$folder"; (Проект будет установлен в данную деректорию)"
