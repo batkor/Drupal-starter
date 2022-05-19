@@ -69,7 +69,7 @@ project_name=$(get_project_name "$folder")
 # Set latest vesion for Docker4Drupal
 last_version_url=$(curl -I https://github.com/wodby/docker4drupal/releases/latest | grep location:)
 d4d_version=${last_version_url##*/}
-
+echo $d4d_version;
 # Warning message.
 echo "Путь до проекта: "$folder"; (Проект будет установлен в данную деректорию)"
 echo "Имя проекта: "$project_name"; (Данное имя будет указано в .env файле Docker4Drupal)"
