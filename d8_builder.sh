@@ -53,32 +53,22 @@ get_project_name(){
     echo $project_name
 }
 
-# Parh for get last realese version.
-d4d_last_version(){
- curl https://github.com/wodby/docker4drupal/releases/latest | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+"
-}
-
 #<----------END FUNCTIONS BLOCK------------>
-
 
 # Set path project for install.
 folder=$(get_path_project)
 check_folder $folder
 # Set project name. Used name in docker.
 project_name=$(get_project_name "$folder")
-# Set latest vesion for Docker4Drupal
-last_version_url=$(curl -I https://github.com/wodby/docker4drupal/releases/latest | grep location:)
-d4d_version=${last_version_url##*/}
-echo $d4d_version;
 # Warning message.
-echo "Путь до проекта: "$folder"; (Проект будет установлен в данную деректорию)"
-echo "Имя проекта: "$project_name"; (Данное имя будет указано в .env файле Docker4Drupal)"
+echo "Путь до проекта: $folder; (Проект будет установлен в данную деректорию)"
+echo "Имя проекта: $project_name; (Данное имя будет указано в .env файле Docker4Drupal)"
 
-cd $folder
+cd $folder || exit
 find . -mindepth 1 -delete
 
 #Download docker4Drupal.
-curl -OJL https://github.com/wodby/docker4drupal/releases/download/$d4d_version/docker4drupal.tar.gz
+curl -OJL https://github.com/wodby/docker4drupal/releases/latest/download/docker4drupal.tar.gz
 tar -xvf docker4drupal.tar.gz
 
 # Correct project directory.
@@ -86,34 +76,37 @@ rm -rf docker4drupal.tar.gz
 rm -rf docker-sync.yml
 
 # Set project name in .env file
-sed -i "s/my_drupal9_project/"$project_name"/" $folder/.env
-sed -i "s/drupal.docker/"$project_name"/" $folder/.env
+sed -i "s/my_drupal9_project/$project_name/" $folder/.env
+sed -i "s/drupal.docker/$project_name/" $folder/.env
 
 # Get docker-compose override file.
 curl -OJ https://raw.githubusercontent.com/batkor/Drupal-starter/main/docker-compose.override.yml
 
 # Change port.
-read -p "Введите номер порта или оставьте пустым:`echo $'\n> '`" port_name
+echo "Введите номер порта или оставьте пустым:"
+read -r port_name
 case "$port_name" in
-    "") echo "Порт: 8000" ;;
-    *)
+    ""  ) echo "Порт: 8000" ;;
+    *   )
         if [[ "$port_name" =~ ^[0-9]+$ ]]; then
-            sed -i "s/8000/"$port_name"/" $folder/docker-compose.override.yml
-            echo "Порт: "$port_name
+            sed -i "s/8000/$port_name/" $folder/docker-compose.override.yml
+            echo "Порт: $port_name"
         else
-            echo "Не корректный номер порта: "$port_name
+            echo "Не корректный номер порта: $port_name"
         fi
     ;;
 esac
 
 # Create default files and folder.
-mkdir ./code && cd ./code
+mkdir ./code && cd ./code || exit
 curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/composer.json'
 curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/.gitignore'
 curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/phpcs.xml'
 curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/phpunit.xml'
 
 # Result message.
-echo 'Installed in: '$folder
-echo 'Project name: '$project_name
-echo 'Docker4Drupal version: '$d4d_version
+# Get Docker4Drupal version.
+d4d_version=$(curl -I https://github.com/wodby/docker4drupal/releases/latest | grep location: | sed 's#.*/##')
+echo "Installed in: $folder"
+echo "Project name: $project_name"
+echo "Docker4Drupal version: $d4d_version"
