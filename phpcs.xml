@@ -2,7 +2,7 @@
 <ruleset name="PROJECT">
   <description>PROJECT</description>
   <arg name="colors"/>
-  <arg name="extensions" value="php,module,inc,install,theme"/>
+  <arg name="extensions" value="php,module,inc,install,theme,profile,scss,js,yml"/>
   <file>*/modules/custom</file>
   <file>*/themes/custom</file>
   <!-- Exclude vendors. -->
@@ -11,11 +11,46 @@
   <exclude-pattern>*/node_modules</exclude-pattern>
   <!-- Exclude fixtures. -->
   <exclude-pattern>*/fixtures/*</exclude-pattern>
-  <exclude-pattern>*\.(css|js)</exclude-pattern>
+  <exclude-pattern>*\.(css)</exclude-pattern>
   <rule ref="vendor/drupal/coder/coder_sniffer/Drupal">
-  <!-- Exclude in favor of native typehints. -->
-  <exclude name="Drupal.Commenting.VariableComment.MissingVar"/>
+    <!-- Exclude in favor of native typehints. -->
+    <exclude name="Drupal.Commenting.VariableComment.MissingVar"/>
   </rule>
   <rule ref="vendor/drupal/coder/coder_sniffer/DrupalPractice"/>
-  <rule ref="vendor/chi-teck/drupal-coder-extension/DrupalExtended74"/>
+  <rule ref="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing">
+    <properties>
+      <property name="linesCountBefore" value="1"/>
+      <property name="linesCountBeforeFirst" value="0"/>
+      <property name="linesCountAfter" value="1"/>
+      <property name="linesCountAfterLast" value="0"/>
+      <property name="controlStructures" type="array">
+        <element value="switch"/>
+        <element value="try"/>
+        <element value="if"/>
+        <element value="for"/>
+        <element value="foreach"/>
+        <element value="while"/>
+      </property>
+    </properties>
+  </rule>
+  <rule ref="SlevomatCodingStandard.ControlStructures.JumpStatementsSpacing">
+    <properties>
+      <property name="linesCountBefore" value="1"/>
+      <property name="linesCountBeforeFirst" value="0"/>
+      <property name="linesCountAfter" value="1"/>
+      <property name="linesCountAfterLast" value="0"/>
+      <property name="linesCountAfterWhenLastInCaseOrDefault" value="0"/>
+      <property name="linesCountAfterWhenLastInLastCaseOrDefault" value="0"/>
+      <property name="jumpStatements" type="array">
+        <element value="goto"/>
+        <element value="throw"/>
+        <element value="yield"/>
+        <element value="continue"/>
+        <element value="return"/>
+      </property>
+    </properties>
+  </rule>
+  <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint">
+    <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification"/>
+  </rule>
 </ruleset>
