@@ -22,10 +22,13 @@ services:
       - ./code:/var/www/html
 #      - ./files:/mnt/files
   nginx:
-#    environment:
+    environment:
+      NGINX_SERVER_EXTRA_CONF_FILEPATH: /etc/nginx/my.locations.conf
+      NGINX_DRUPAL_ALLOW_XML_ENDPOINTS: true
 #      NGINX_SERVER_ROOT: /var/www/html
     volumes:
       - ./code:/var/www/html
+      - ./my.locations.conf:/etc/nginx/my.locations.conf
   traefik:
     ports:
       - '8000:80'
