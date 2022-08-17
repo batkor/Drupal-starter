@@ -10,9 +10,13 @@ services:
   php:
     environment:
       PHP_XDEBUG: 1
-      PHP_XDEBUG_MODE: debug
+      PHP_XDEBUG_MODE: profile,debug
       PHP_XDEBUG_LOG_LEVEL: 0
-      PHP_IDE_CONFIG: serverName=my-ide
+      PHP_IDE_CONFIG: serverName=d4d
+      PHP_XDEBUG_IDEKEY: "PHPSTORM"
+      PHP_XDEBUG_START_WITH_REQUEST: trigger
+      PHP_XDEBUG_TRIGGER_VALUE: "PHPSTORM"
+      PHP_XDEBUG_PROFILER_OUTPUT_NAME: "cachegrind.out.%t"
 # For run xdebug from CLI XDEBUG_SESSION=d4d sh -c './vendor/bin/drush scr scripts/test.php'
     volumes:
       - ./code:/var/www/html
