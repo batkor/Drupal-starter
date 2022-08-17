@@ -98,12 +98,12 @@ case "$port_name" in
 esac
 
 # Create default files and folder.
+curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/my.locations.conf'
 mkdir ./code && cd ./code || exit
 curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/composer.json'
 curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/.gitignore'
 curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/phpcs.xml'
 curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/phpunit.xml'
-curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/my.locations.conf'
 
 # Result message.
 # Get Docker4Drupal version.
