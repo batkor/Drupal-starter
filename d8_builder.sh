@@ -103,6 +103,7 @@ curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/composer.
 curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/.gitignore'
 curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/phpcs.xml'
 curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/phpunit.xml'
+curl -OJ 'https://raw.githubusercontent.com/batkor/Drupal-starter/main/my.locations.conf'
 
 # Result message.
 # Get Docker4Drupal version.
