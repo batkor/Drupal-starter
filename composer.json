@@ -22,9 +22,9 @@
         "php": ">=7.4",
         "composer/installers": "^1.9",
         "cweagans/composer-patches": "^1.6",
-        "drupal/core-composer-scaffold": "^9.2",
-        "drupal/core-recommended": "^9.2",
-        "drush/drush": "^10.1",
+        "drupal/core-composer-scaffold": "^10.2",
+        "drupal/core-recommended": "^10.2",
+        "drush/drush": "^11.6",
         "oomphinc/composer-installers-extender": "^2.0"
     },
     "conflict": {
@@ -33,7 +33,14 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "oomphinc/composer-installers-extender": true
+        }
     },
     "extra": {
         "composer-exit-on-patch-failure": true,
@@ -76,8 +83,7 @@
         },
         "patches": {
             "drupal/core": {
-                "dgo.to/3020876#comment-13474808": "https://www.drupal.org/files/issues/2020-02-22/contextual_links_layout_builder_0.patch",
-                "dgo.to/2957953#comment-14227597": "https://www.drupal.org/files/issues/2021-09-20/2957953-9.3.x-139.patch"
+                "dgo.to/3020876#comment-13474808": "https://www.drupal.org/files/issues/2020-02-22/contextual_links_layout_builder_0.patch"
             }
         }
     },
