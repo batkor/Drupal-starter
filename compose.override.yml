@@ -1,5 +1,3 @@
-version: "3.7"
-
 services:
   mariadb:
     ports:
@@ -20,7 +18,7 @@ services:
 # For run xdebug from CLI XDEBUG_SESSION=d4d sh -c './vendor/bin/drush scr scripts/test.php'
     volumes:
       - ./code:/var/www/html
-#      - ./files:/mnt/files
+      - ./files:/mnt/files
   nginx:
     environment:
 #      NGINX_SERVER_EXTRA_CONF_FILEPATH: /etc/nginx/my.locations.conf
@@ -29,9 +27,7 @@ services:
     volumes:
       - ./code:/var/www/html
 #      - ./my.locations.conf:/etc/nginx/my.locations.conf
-  traefik:
-    ports:
-      - '8000:80'
+
 #  chrome:
 #    image: drupalci/webdriver-chromedriver:production
 #    ulimits:

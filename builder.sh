@@ -80,7 +80,7 @@ sed -i "s/my_drupal10_project/$project_name/" $folder/.env
 sed -i "s/drupal.docker/$project_name/" $folder/.env
 
 # Get docker-compose override file.
-curl -OJ https://raw.githubusercontent.com/batkor/Drupal-starter/main/docker-compose.override.yml
+curl -OJ https://raw.githubusercontent.com/batkor/Drupal-starter/main/compose.override.yml
 
 # Change port.
 echo "Введите номер порта или оставьте пустым:"
