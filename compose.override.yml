@@ -7,6 +7,12 @@ services:
       - ./db/source:/var/lib/mysql
   php:
     environment:
+      PHP_FPM_CLEAR_ENV: "no"
+      PHP_EXTENSIONS_DISABLE: ""
+      PHP_SPX_HTTP_ENABLED: 0
+      PHP_SPX_HTTP_KEY: 'dev'
+      PHP_SPX_HTTP_IP_WHITELIST: '*'
+      PHP_XDEBUG_CLIENT_HOST: "172.17.0.1"
       PHP_XDEBUG: 1
       PHP_XDEBUG_MODE: profile,debug
       PHP_XDEBUG_LOG_LEVEL: 0
